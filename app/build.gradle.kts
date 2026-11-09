@@ -53,5 +53,29 @@ dependencies {
     debugImplementation(libs.androidx.compose.ui.test.manifest)
     debugImplementation(libs.androidx.compose.ui.tooling)
 
-    implementation("androidx.biometric:biometric-ktx:1.2.0-alpha05")
+    // ========== Core Security & Biometrics ==========
+    implementation(libs.androidx.biometric.ktx)
+
+    //  ========== Jetpack Compose Integration ==========
+    implementation(platform(libs.androidx.compose.bom))
+    implementation(libs.androidx.compose.ui)
+    implementation(libs.androidx.compose.ui.graphics)
+    implementation(libs.androidx.compose.ui.tooling.preview)
+    implementation(libs.androidx.compose.material3)
+
+    // ========== Activity & Fragment support (BiometricPrompt requires FragmentActivity) ==========
+    implementation(libs.androidx.activity.compose)
+    implementation(libs.androidx.fragment.ktx)
+
+    // ========== Architecture components & Lifecycle (MVI & StateFlow) ==========
+    implementation(libs.androidx.lifecycle.viewmodel.compose)
+    implementation(libs.androidx.lifecycle.runtime.ktx)
+
+    // ========== Kotlin Coroutines ==========
+    implementation(libs.kotlinx.coroutines.core)
+    implementation(libs.kotlinx.coroutines.android)
+
+    // ========== Dependency Injection (Koin) ==========
+    implementation(libs.koin.android)
+    implementation(libs.koin.androidx.compose)
 }
